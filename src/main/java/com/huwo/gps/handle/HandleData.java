@@ -94,7 +94,7 @@ public class HandleData {
                 }
 
             }
-        }, 1, 2, TimeUnit.SECONDS);
+        }, 1, 5, TimeUnit.SECONDS);
 
     }
 }
