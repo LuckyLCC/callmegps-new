@@ -26,7 +26,6 @@ import static com.alibaba.fastjson.JSON.parseArray;
 @Component
 public class KafkaConsumer {
 
-    private ScheduledExecutorService service = Executors.newScheduledThreadPool(10);
 
     @Autowired
     HwPositionEventService hwPositionEventService;
@@ -36,7 +35,7 @@ public class KafkaConsumer {
     public void onMessage2(ConsumerRecord<String, byte[]> record) {
         String topic = record.topic();
         String msg = new String(record.value());
-        System.out.println("消费者接受消息：topic-->"+topic+",msg->>"+msg);
+//        System.out.println("消费者接受消息：topic-->"+topic+",msg->>"+msg);
 
         JSONObject jsonObject = JSON.parseObject(msg);
         JSONObject data = jsonObject.getObject("data", JSONObject.class);

@@ -64,6 +64,8 @@ spring:
 #      username: datapowered
 #      password: HTUgMc4D5kTm
 
+time.duration: 2
+
 
 
 
