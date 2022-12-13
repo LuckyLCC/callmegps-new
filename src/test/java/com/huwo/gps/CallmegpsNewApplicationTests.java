@@ -49,7 +49,7 @@ class CallmegpsNewApplicationTests {
 //            System.out.println(value);
 //        }
 
-        Set set = redisClient.getValueForSet(RedisKeyUtils.getGpsKey("setKey"));
+        Set set = redisClient.getValueListForSet(RedisKeyUtils.getGpsKey("setKey"));
         if (CollectionUtils.isEmpty(set)) {
             return;
         }
@@ -69,7 +69,7 @@ class CallmegpsNewApplicationTests {
                         .vehicleID(split[0])
                         .build();
                 List<HwPositionMessage> hwPositionMessageList = new ArrayList<>();
-                Set valueForSet = redisClient.getValueForSet(RedisKeyUtils.getGpsKey(key));
+                Set valueForSet = redisClient.getValueListForSet(RedisKeyUtils.getGpsKey(key));
                 for (Object o : valueForSet) {
                     HwPositionMessage hwPositionMessage = JSON.parseObject((String) o, HwPositionMessage.class);
                     hwPositionMessageList.add(hwPositionMessage);

@@ -56,7 +56,7 @@ public class HandleData {
             @Override
             public void run() {
                 System.out.println("线程运行" + Thread.currentThread().getName());
-                Set set = redisClient.getValueForSet(RedisKeyUtils.getGpsKey("setKey"));
+                Set set = redisClient.getValueListForSet(RedisKeyUtils.getGpsKey("setKey"));
                 if (CollectionUtils.isEmpty(set)) {
                     return;
                 }
@@ -72,7 +72,7 @@ public class HandleData {
                     if (minutes > durationTime) {
                         CallMeGps callMeGps = CallMeGps.builder().id(IdUtil.getSnowflakeNextId()).timeStamp(timeStamp).vehicleID(split[0]).build();
                         List<HwPositionMessage> hwPositionMessageList = new ArrayList<>();
-                        Set valueForSet = redisClient.getValueForSet(RedisKeyUtils.getGpsKey(key));
+                        Set valueForSet = redisClient.getValueListForSet(RedisKeyUtils.getGpsKey(key));
                         for (Object o : valueForSet) {
                             HwPositionMessage hwPositionMessage = JSON.parseObject((String) o, HwPositionMessage.class);
                             hwPositionMessageList.add(hwPositionMessage);
