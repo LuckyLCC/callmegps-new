@@ -12,7 +12,6 @@ public class CallmegpsNewApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(CallmegpsNewApplication.class, args);
-
     }
 
 }
