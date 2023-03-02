@@ -31,7 +31,7 @@ public class KafkaConsumer {
     HwPositionEventService hwPositionEventService;
 
 
-    @KafkaListener(topics = {"callmeappgps"})
+    @KafkaListener(topics = {"huwolog20170816"})
     public void onMessage2(ConsumerRecord<String, byte[]> record) {
         String topic = record.topic();
         String msg = new String(record.value());
